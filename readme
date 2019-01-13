@@ -1,0 +1,27 @@
+Instructions are provided below:
+
+1. First files are preprocessed to generate a weka compatible training file using “createTrainingFile_from_csv.py” from the folder python.
+
+2. The project to run is “rule-mining” in the folder java for generating rules and statically prioritize the test cases (SSBP).
+
+3. Add “jmetal4.5src” in the build path of “rule-mining”.
+
+4. “ClassifyInstance_JRIP” is used to generate RIPPER rules by reading the training instance file from step 1.
+
+5. “ComputeAllRules_Export.py” is used to generate all the failing rules and passing rules from the rule mining algorithm from step 4.
+
+6. “NSGAII_JRIP_2obj”/“NSGAII_JRIP_23obj” is used to statically prioritize the test cases (SSBP) considering two objectives/three objectives using the mined rules from step 5.
+
+7. Execute the statically prioritized test cases from step 6 and dynamically prioritize it using the mined rules from step 5.
+
+
+Python files are used to:
+1. Preprocess the original CSV file and create a weka compatible training file.
+
+2. Classify fail rules and pass rules from the rule mining algorithm.
+
+
+Java files are used to:
+1. Generate the overall rules using the rule mining algorithm weka.
+
+2. Use NSGA-II to prioritize the test cases.
